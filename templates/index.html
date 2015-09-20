@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang = "ja">
+	<head>
+		<meta charser="utf-8">
+		<title>ExpressionParser</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="{{ url_for('static', filename='sticky-footer.css') }}" type="text/css" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" />
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+
+
+		<script src="{{ url_for('static', filename='drawer.js') }}"></script>
+
+	</head>
+
+	<body>
+
+		<div id="wrap">
+
+      </br>
+
+      <div class="container">
+		  <div class="jumbotron">
+
+			  <form class="form-horizontal" role="form">
+
+				  <div class="container">
+					  <div class="form-group">
+
+						  <h1>Expression Parser</h1>
+						  <p> Calculate the Answer to the Ultimate Question of Life, the Universe, and Everything </p>
+
+					  </div>
+				  </div>
+
+
+				  <div class="form-group">
+					  <label for="inputText" class="col-sm-1 control-label" >IN</label>
+					  <div class="col-sm-11">
+						  <input type="text" class="form-control" id="inputText" placeholder="expression">
+					  </div>
+				  </div>
+
+
+				  <div class="form-group">
+					  <label for="outputText" class="col-sm-1 control-label" >OUT</label>
+					  <div class="col-sm-11">
+						  <input type="text" class="form-control" id="outputText" readonly="readonly">
+					  </div>
+				  </div>
+
+			  </form>
+
+			  <div class="form-group">
+				  <p id="estimated">estimated = not yet</p>
+				  draw number here ↓</br>
+			  </div>
+
+			  <div class="canvas_area">
+				  <canvas id="canvas"></canvas>
+			  </div>
+			  <input id="delete_button" type="button" value="delete" />
+
+
+		  </div>
+      </div>
+
+
+		</div>
+		<!-- /wrap-->
+
+		<!-- footer -->
+		<div id="footer">
+			<div class="container">
+
+				<p class="navbar-text pull-right">
+					Developed by  <a href="https://twitter.com/masaponto">@masaponto</a>
+				</p>
+
+			</div>
+		</div>
+		<!-- /footer -->
+
+		<!-- <script src="parser.js"></script> -->
+		<script src="{{ url_for('static', filename='parser.js') }}"></script>
+
+	</body>
+
+</html>
