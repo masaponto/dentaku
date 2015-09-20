@@ -16,14 +16,14 @@
 ```
 
 ## License
-- This software uses Bootsrap, which is licensed by the MIT License.
-Copyright (c) 2011-2014 Twitter, Inc
-see
-http://opensource.org/licenses/mit-license.php
+- This software uses Bootsrap, which is licensed by the MIT License.  
+Copyright (c) 2011-2014 Twitter, Inc  
+see  
+http://opensource.org/licenses/mit-license.php  
 
-- This software uses Handwritten Classifier, which is licensed by the MIT License.
-Copyright (c) [2014] [Yuichi Takeda]
-https://github.com/ginrou/handwritten_classifier
+- This software uses Handwritten Classifier, which is licensed by the MIT License.  
+Copyright (c) [2014] [Yuichi Takeda]  
+https://github.com/ginrou/handwritten_classifier  
 
-see
-https://opensource.org/licenses/MIT
+see  
+https://opensource.org/licenses/MIT  
