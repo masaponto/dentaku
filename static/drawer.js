@@ -69,7 +69,6 @@ window.addEventListener("load", function(){
                     $("#estimated").text("Estimated = " + result.estimated);
                     document.getElementById('inputText').value =result.estimated;
 
-                    // $("#inputText").text(result.estimated);
                 }
             });
         };

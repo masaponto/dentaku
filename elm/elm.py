@@ -20,8 +20,7 @@ from sklearn import cross_validation
 from sklearn.datasets import load_svmlight_file
 
 
-
-import gc; gc.collect()
+#import gc; gc.collect()
 
 class ELM (BaseEstimator):
 
@@ -50,7 +49,8 @@ class ELM (BaseEstimator):
 
         """
 
-        return 0.0 if self.a * x < -709 else 1 / (1 + np.exp(- self.a * x))
+        return 1 / (1 + np.exp(- self.a * x))
+    #return 0.0 if self.a * x < -709 else 1 / (1 + np.exp(- self.a * x))
 
     def __G(self, a_v, x_v):
         """output hidden nodes
@@ -117,18 +117,18 @@ class ELM (BaseEstimator):
             t_vs = y
             # weight out layer
             self.beta_v = np.dot(h_t, t_vs)
-            del t_vs
+            #del t_vs
 
         else:
             t_vs = np.array(list(map(self.__ltov(self.out_num), y)))
             # weight out layer
             self.beta_v = np.transpose(np.dot(h_t, t_vs))
-            del t_vs
+            #del t_vs
 
-        del x_vs
-        del h
-        del h_t
-        gc.collect()
+        #del x_vs
+        #del h
+        #del h_t
+        #gc.collect()
 
 
     def dump_weights(self):
@@ -218,6 +218,7 @@ class ELM (BaseEstimator):
                 return 0
             return int(v.index(1))
 
+
     def __ltov(self, n):
         """trasform label scalar to vector
 
@@ -260,16 +261,20 @@ def check_classification():
 
 def run_cv():
     db_name = 'MNIST original'
-
     data_set = fetch_mldata(db_name)
-    #data_set.data = preprocessing.scale(data_set.data)
+    hid_num = 100
+    print(hid_num)
 
-    e = ELM(1000)
+    data_set.data = preprocessing.scale(data_set.data)
+
+    e = ELM(hid_num)
     ave = 0
+
     for i in range(10):
         scores = cross_validation.cross_val_score(
             e, data_set.data, data_set.target, cv=5, scoring='accuracy')
         ave += scores.mean()
+
     ave /= 10
     print("Accuracy: %0.3f " % (ave))
 
@@ -278,7 +283,7 @@ def learn_elm():
     db_name = 'MNIST original'
     data_set = fetch_mldata(db_name)
 
-    e = ELM(1000)
+    e = ELM(100)
     X_train, X_test, y_train, y_test = cross_validation.train_test_split(
         data_set.data, data_set.target, test_size=0.4, random_state=0)
 
@@ -287,8 +292,8 @@ def learn_elm():
 
 
 def main():
-    #run_cv()
-    learn_elm()
+    run_cv()
+    #learn_elm()
 
 if __name__ == "__main__":
     main()
