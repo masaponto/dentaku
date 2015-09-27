@@ -260,7 +260,9 @@ def check_classification():
 
 
 def run_cv():
-    db_name = 'MNIST original'
+    db_name = 'australian'
+    print(db_name)
+    #db_name = 'MNIST original'
     data_set = fetch_mldata(db_name)
     hid_num = 100
     print(hid_num)
@@ -280,6 +282,7 @@ def run_cv():
 
 
 def learn_elm():
+
     db_name = 'MNIST original'
     data_set = fetch_mldata(db_name)
 
