@@ -76,7 +76,8 @@ class ELM (BaseEstimator):
 
         """
 
-        return np.sign(np.dot(self.beta_v, [self.__G(a_v, x_v) for a_v in self.a_vs]))
+        return np.dot(self.beta_v, [self.__G(a_v, x_v) for a_v in self.a_vs])
+        #return np.sign(np.dot(self.beta_v, [self.__G(a_v, x_v) for a_v in self.a_vs]))
 
     def __get_hid_matrix(self, x_vs):
         """ output matrix hidden layer
@@ -213,10 +214,9 @@ class ELM (BaseEstimator):
         else:
             v = list(vec)
             if len(v) == 1:
-                return vec[0]
-            elif (max(v) == -1):
-                return 0
-            return int(v.index(1))
+                return np.sign(vec[0])
+            #return int(v.index(1))
+            return v.index(max(v))
 
 
     def __ltov(self, n):
@@ -261,6 +261,8 @@ def check_classification():
 
 def run_cv():
     db_name = 'MNIST original'
+    db_name = 'iris'
+
     data_set = fetch_mldata(db_name)
     hid_num = 100
     print(hid_num)
