@@ -17,7 +17,7 @@ window.addEventListener("load", function(){
 
         context.lineJoin = "round";
         context.lineCap = "round";
-        context.lineWidth = 5;
+        context.lineWidth = 20;
         context.strokeStyle = 'rgb(0,0,0)';
 
         $("#canvas").bind('touchstart mousedown', function(e) {
