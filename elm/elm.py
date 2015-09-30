@@ -258,16 +258,12 @@ def check_classification():
 
 
 def run_cv():
-<<<<<<< HEAD
-    db_name = 'australian'
+
+    db_name = 'MNIST original'
     print(db_name)
     #db_name = 'MNIST original'
-=======
-    db_name = 'MNIST original'
     #db_name = 'iris'
-    print(db_name)
 
->>>>>>> develop
     data_set = fetch_mldata(db_name)
     hid_num = 1000
     print(hid_num)
