@@ -20,8 +20,6 @@ from sklearn import cross_validation
 from sklearn.datasets import load_svmlight_file
 
 
-#import gc; gc.collect()
-
 class ELM (BaseEstimator):
 
     """ ELM model Binary class classification
@@ -49,8 +47,8 @@ class ELM (BaseEstimator):
 
         """
 
-        return 1 / (1 + np.exp(- self.a * x))
-    #return 0.0 if self.a * x < -709 else 1 / (1 + np.exp(- self.a * x))
+        #return 1 / (1 + np.exp(- self.a * x))
+        return 0.0 if self.a * x < -709 else 1 / (1 + np.exp(- self.a * x))
 
     def __G(self, a_v, x_v):
         """output hidden nodes
@@ -76,7 +74,8 @@ class ELM (BaseEstimator):
 
         """
 
-        return np.sign(np.dot(self.beta_v, [self.__G(a_v, x_v) for a_v in self.a_vs]))
+        return np.dot(self.beta_v, [self.__G(a_v, x_v) for a_v in self.a_vs])
+        #return np.sign(np.dot(self.beta_v, [self.__G(a_v, x_v) for a_v in self.a_vs]))
 
     def __get_hid_matrix(self, x_vs):
         """ output matrix hidden layer
@@ -209,14 +208,13 @@ class ELM (BaseEstimator):
         """
 
         if self.out_num == 1:
-            return round(vec, 0)
+            return round(np.sign(vec), 0)
         else:
             v = list(vec)
             if len(v) == 1:
-                return vec[0]
-            elif (max(v) == -1):
-                return 0
-            return int(v.index(1))
+                return np.sign(vec[0])
+            #return int(v.index(1))
+            return v.index(max(v))
 
 
     def __ltov(self, n):
@@ -260,21 +258,28 @@ def check_classification():
 
 
 def run_cv():
+<<<<<<< HEAD
     db_name = 'australian'
     print(db_name)
     #db_name = 'MNIST original'
-    data_set = fetch_mldata(db_name)
-    hid_num = 100
-    print(hid_num)
+=======
+    db_name = 'MNIST original'
+    #db_name = 'iris'
+    print(db_name)
 
-    data_set.data = preprocessing.scale(data_set.data)
+>>>>>>> develop
+    data_set = fetch_mldata(db_name)
+    hid_num = 1000
+    print(hid_num)
+    print(data_set.data.shape)
+
 
     e = ELM(hid_num)
     ave = 0
 
     for i in range(10):
         scores = cross_validation.cross_val_score(
-            e, data_set.data, data_set.target, cv=5, scoring='accuracy')
+            e, data_set.data, data_set.target, cv=10, scoring='accuracy', n_jobs = -1)
         ave += scores.mean()
 
     ave /= 10
@@ -286,17 +291,17 @@ def learn_elm():
     db_name = 'MNIST original'
     data_set = fetch_mldata(db_name)
 
-    e = ELM(100)
+    e = ELM(1000)
     X_train, X_test, y_train, y_test = cross_validation.train_test_split(
-        data_set.data, data_set.target, test_size=0.4, random_state=0)
+        data_set.data, data_set.target, test_size=0.2, random_state=0)
 
     e.fit(X_train, y_train)
     e.dump_weights()
 
 
 def main():
-    run_cv()
-    #learn_elm()
+    #run_cv()
+    learn_elm()
 
 if __name__ == "__main__":
     main()

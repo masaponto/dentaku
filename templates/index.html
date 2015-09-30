@@ -6,97 +6,104 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<link rel="stylesheet" href="{{ url_for('static', filename='sticky-footer.css') }}" type="text/css" />
+
 		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" />
 
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-pink.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
+		<script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
 
 		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-
-
-
-		<script src="{{ url_for('static', filename='drawer.js') }}"></script>
 
 	</head>
 
 	<body>
 
-		<div id="wrap">
-
-      </br>
-
-      <div class="container">
-		  <div class="jumbotron">
-
-			  <form class="form-horizontal" role="form">
-
-				  <div class="container">
-					  <div class="form-group">
-
-						  <h1>Expression Parser</h1>
-						  <p> Calculate the Answer to the Ultimate Question of Life, the Universe, and Everything </p>
-
-					  </div>
-				  </div>
-
-
-				  <div class="form-group">
-					  <label for="inputText" class="col-sm-1 control-label" >IN</label>
-					  <div class="col-sm-11">
-						  <input type="text" class="form-control" id="inputText" placeholder="expression">
-					  </div>
-				  </div>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+			<header class="mdl-layout__header">
+				<div class="mdl-layout__header-row">
+					<!-- Title -->
+					<span class="mdl-layout-title">Expression Parser</span>
+					<!-- Add spacer, to align navigation to the right -->
+					<div class="mdl-layout-spacer"></div>
+					<!--Navigation. We hide it in small screens. -->
+					<nav class="mdl-navigation ">
+						<ul>
+							<a href="https://twitter.com/masaponto"><i class="fa fa-twitter fa-2x"></i></a>
+							<a href="https://github.com/masaponto/task_app"><i class="fa fa-github-square fa-2x"></i></a>
+						</ul>
+					</nav>
+				</div>
+			</header>
 
 
-				  <div class="form-group">
-					  <label for="outputText" class="col-sm-1 control-label" >OUT</label>
-					  <div class="col-sm-11">
-						  <input type="text" class="form-control" id="outputText" readonly="readonly">
-					  </div>
-				  </div>
+	  		<main class="mdl-layout__content">
+				<div class="page-content">
 
-			  </form>
+					<div class="mdl-grid">
 
-			  <div class="form-group">
-				  <p id="estimated">estimated = not yet</p>
-				  draw number here ↓</br>
-			  </div>
+						<div class="mdl-cell mdl-cell--1-col"></div>
 
-			  <div class="canvas_area">
-				  <canvas id="canvas"></canvas>
-			  </div>
-			  <!-- <input id="delete_button" type="button" value="delete" /> -->
-			  <br>
-			  <button id="delete_button" type="button" class="btn btn-danger">Delete</button>
+						<div class="mdl-cell--7-col">
+
+							<div class="mdl-cell mdl-cell--1-col"><h1>hello</h1></div>
+
+							<form action="#">
+								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--10-col">
+									<input class="mdl-textfield__input" type="text" id="inputText" />
+									<label class="mdl-textfield__label" for="inputText">In put expression</label>
+								</div>
+							</form>
+
+							<div class="mdl-cell mdl-cell--1-col"></div>
+							<div class="mdl-cell mdl-cell--1-col"></div>
+
+							<form action="#">
+								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--10-col">
+									<input class="mdl-textfield__input" type="text" id="outputText"  readonly="readonly"/>
+									<label class="mdl-textfield__label" for="outputText"></label>
+								</div>
+							</form>
+
+							<div class="mdl-cell mdl-cell--1-col"></div>
+						</div>
+
+						<div class="mdl-cell--3-col">
+
+							<h6 id="estimated"> This Number is ...</h6>
+
+							<div class="canvas_area">
+								<canvas id="canvas" class="mdl-shadow--2dp"></canvas>
+							</div>
+							<br>
+							<button id="accept_button" type="button"
+									class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">OK</button>
+							<button id="delete_button" type="button"
+									class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">No</button>
+
+						</div>
 
 
-		  </div>
-      </div>
+						<div class="mdl-cell mdl-cell--1-col"></div>
 
 
+					</div>
+
+
+
+				</div>
+
+
+			</main>
 		</div>
-		<!-- /wrap-->
 
-		<!-- footer -->
-		<div id="footer">
-			<div class="container">
-
-				<p class="navbar-text pull-right">
-					Developed by  <a href="https://twitter.com/masaponto">@masaponto</a>
-				</p>
-
-			</div>
-		</div>
-		<!-- /footer -->
 
 		<!-- <script src="parser.js"></script> -->
+		<script src="{{ url_for('static', filename='drawer.js') }}"></script>
 		<script src="{{ url_for('static', filename='parser.js') }}"></script>
 
 	</body>

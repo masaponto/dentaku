@@ -9,6 +9,7 @@ window.addEventListener("load", function(){
 
         var drawing = false;
         var prev = {};
+        var re = null;
 
         canvas.width = 2 * $("#canvas").width();
         canvas.height = 2 * $("#canvas").height();
@@ -21,6 +22,7 @@ window.addEventListener("load", function(){
 
         $("#canvas").bind('touchstart mousedown', function(e) {
             e.preventDefault();
+            event = null;
             prev = getPointOnCanvas(this, event, e);
             drawing = true;
         });
@@ -42,6 +44,9 @@ window.addEventListener("load", function(){
         });
 
         $("#canvas").bind('touchend mouseup mouseleave', function(e) {
+
+            // console.log(drawing)
+
             drawing = false;
             estimate(context);
         });
@@ -55,6 +60,13 @@ window.addEventListener("load", function(){
 
         $("#delete_button").click(function(){
             context.clearRect(0,0,280,280);
+            re = '';
+        });
+
+        $("#accept_button").click(function(){
+            document.getElementById('inputText').value += re;
+            context.clearRect(0,0,280,280);
+            re = '';
         });
 
         var estimate = function(context) {
@@ -66,9 +78,8 @@ window.addEventListener("load", function(){
                 contentType: 'application/json',
                 success: function(result) {
                     console.log(result);
-                    $("#estimated").text("Estimated = " + result.estimated);
-                    document.getElementById('inputText').value =result.estimated;
-
+                    $("#estimated").text("This Number is " + result.estimated + " ?");
+                    re = result.estimated
                 }
             });
         };
