@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# reference https://github.com/ginrou/handwritten_classifier/blob/master/app.py
+
 from flask import Flask, render_template, request, jsonify
 
 import numpy

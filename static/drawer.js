@@ -1,3 +1,5 @@
+// reference https://github.com/ginrou/handwritten_classifier/blob/master/static/drawer.js
+
 window.addEventListener("load", function(){
 
     var canvas = $("#canvas").get(0);
