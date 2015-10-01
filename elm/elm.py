@@ -279,7 +279,7 @@ def run_cv():
         ave += scores.mean()
 
     ave /= 10
-    print("Accuracy: %0.3f " % (ave))
+    print("Accuracy: %0.3f" % (ave))
 
 
 def learn_elm():
