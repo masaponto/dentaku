@@ -1,7 +1,7 @@
 # dentaku
 
 ## URL
-- comming soon
+- http://dentaku.herokuapp.com  
 
 ## Requires
 - ghc 7.6.3 and up
@@ -25,3 +25,8 @@ Copyright (c) [2014] [Yuichi Takeda]
 https://github.com/ginrou/handwritten_classifier  
 see  
 https://opensource.org/licenses/MIT  
+
+- This software uses Material Design Lite, which is licensed by the Apache-2 license.  
+copyright (c) Google, 2015.  
+see  
+http://www.apache.org/licenses/LICENSE-2.0.html  
