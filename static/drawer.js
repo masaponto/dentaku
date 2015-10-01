@@ -66,6 +66,7 @@ window.addEventListener("load", function(){
         $("#accept_button").click(function(){
             document.getElementById('inputText').value += re;
             context.clearRect(0,0,280,280);
+            document.getElementById('inputText').focus();
             re = '';
         });
 
