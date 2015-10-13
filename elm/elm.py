@@ -265,6 +265,11 @@ def run_cv():
     #db_name = 'iris'
 
     data_set = fetch_mldata(db_name)
+
+    data_set.data   = data_set.data.astype(np.float32)
+    data_set.data  /= 255     # 0-1のデータに変換
+    data_set.target = data_set.target.astype(np.int32)
+
     hid_num = 1000
     print(hid_num)
     print(data_set.data.shape)
@@ -275,7 +280,7 @@ def run_cv():
 
     for i in range(10):
         scores = cross_validation.cross_val_score(
-            e, data_set.data, data_set.target, cv=10, scoring='accuracy', n_jobs = -1)
+            e, data_set.data, data_set.target, cv=10, scoring='accuracy')
         ave += scores.mean()
 
     ave /= 10
@@ -286,6 +291,9 @@ def learn_elm():
 
     db_name = 'MNIST original'
     data_set = fetch_mldata(db_name)
+    data_set.data   = data_set.data.astype(np.float32)
+    data_set.data  /= 255     # 0-1のデータに変換
+    data_set.target = data_set.target.astype(np.int32)
 
     e = ELM(1000)
     X_train, X_test, y_train, y_test = cross_validation.train_test_split(
@@ -296,7 +304,7 @@ def learn_elm():
 
 
 def main():
-    #run_cv()
+    run_cv()
     learn_elm()
 
 if __name__ == "__main__":
