@@ -21,7 +21,7 @@ def index():
 @app.route("/estimate", methods = ["POST"])
 def estimate():
     try:
-        x = numpy.array(request.json["input"]) / 255.0
+        x = numpy.array(request.json["input"])
         y = int(elm.one_predict(x))
         print(y)
         return jsonify({"estimated":y})
