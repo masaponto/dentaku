@@ -1,4 +1,7 @@
 # dentaku
+Expression Parsere + Hand Written Classifier with Extreme Learning Machine  
+
+- http://nbviewer.ipython.org/github/masaponto/dentaku/blob/master/elm/elm.ipynb  
 
 ## URL
 - http://dentaku.herokuapp.com  
@@ -30,3 +33,7 @@ https://opensource.org/licenses/MIT
 copyright (c) Google, 2015.  
 see  
 http://www.apache.org/licenses/LICENSE-2.0.html  
+
+- This software is This software is released under the MIT License.  
+Copyright (c) 2015 masaponto  
+http://opensource.org/licenses/mit-license.php  
