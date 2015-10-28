@@ -252,6 +252,7 @@ def run_cv():
     print("Accuracy: %0.3f" % (ave))
 
 
+
 def learn_elm():
 
     db_name = 'MNIST original'
@@ -269,8 +270,8 @@ def learn_elm():
 
 
 def main():
-    #check_classification()
-    run_cv()
+    check_classification()
+    #run_cv()
     #run_iris_cv()
     #learn_elm()
 
