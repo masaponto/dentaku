@@ -1,3 +1,5 @@
+# reference https://github.com/sugyan/tensorflow-mnist/blob/master/mnist/model.py
+
 import tensorflow as tf
 
 # Softmax Regression Model

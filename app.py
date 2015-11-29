@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 # reference https://github.com/ginrou/handwritten_classifier/blob/master/app.py
-# refecence https://github.com/sugyan/tensorflow-mnist
 
 import tensorflow as tf
 import numpy as np
