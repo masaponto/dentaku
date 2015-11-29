@@ -1,3 +1,4 @@
+// this program is from reference
 // reference https://github.com/ginrou/handwritten_classifier/blob/master/static/drawer.js
 
 window.addEventListener("load", function(){
@@ -80,7 +81,7 @@ window.addEventListener("load", function(){
                 data: JSON.stringify({"input": img_buf}),
                 contentType: 'application/json',
                 success: function(result) {
-                    console.log(result);
+                    //econsole.log(result);
                     $("#estimated").text("This Number is " + result.estimated + " ?");
                     re = result.estimated
                 }
@@ -94,6 +95,18 @@ window.addEventListener("load", function(){
             var tmpContext = tmpCanvas.getContext('2d');
             tmpContext.drawImage(context.canvas, 0, 0, width, height);
             var image = tmpContext.getImageData(0,0,width,height);
+
+            //var inputs = [];
+            //var data = small.getImageData(0, 0, 28, 28).data;
+            // for (var i = 0; i < 28; i++) {
+            //     for (var j = 0; j < 28; j++) {
+            //         var n = 4 * (i * 28 + j);
+            //         inputs[i * 28 + j] = (data[n + 0] + data[n + 1] + data[n + 2]) / 3;
+            //         tmpContext.fillStyle = 'rgb(' + [data[n + 0], data[n + 1], data[n + 2]].join(',') + ')';
+            //         tmpContext.fillRect(j * 5, i * 5, 5, 5);
+            //     }
+            // }
+
 
             var buffer = []
             for( var i = 0; i < image.data.length; i += 4 ) {
