@@ -39,8 +39,6 @@ def index():
 @app.route("/estimate", methods = ["POST"])
 def estimate():
     try:
-        #input = np.array(request.json["input"])
-        #print request.json
         input = (np.array(request.json["input"], dtype=np.uint8) / 255.0).reshape(1, 784)
         output = convolutional(input)
         return jsonify({"estimated":output})
