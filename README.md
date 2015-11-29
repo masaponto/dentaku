@@ -1,20 +1,20 @@
 # dentaku
-Expression Parsere + Hand Written Classifier with Extreme Learning Machine  
+Expression Parsere + Hand Written Classifier with deep learning (TensorFlow)
 
-- http://nbviewer.ipython.org/github/masaponto/dentaku/blob/master/elm/elm.ipynb  
 
 ## URL
-- http://dentaku.herokuapp.com  
+comming soon
 
 ## Requires
 - ghc 7.6.3 and up
   - fay 0.20.1.1
 
-- python3.x
+- python 2.7.10
   - flask
-  - numpy
-  - scipy
-  - scikit-learn
+  - TensorFlow
+
+## Reference
+this software was in reference to https://github.com/sugyan/tensorflow-mnist
 
 
 ## License
@@ -34,6 +34,6 @@ copyright (c) Google, 2015.
 see  
 http://www.apache.org/licenses/LICENSE-2.0.html  
 
-- This software is This software is released under the MIT License.  
+- This software is released under the MIT License.  
 Copyright (c) 2015 masaponto  
 http://opensource.org/licenses/mit-license.php  
