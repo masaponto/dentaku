@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 # reference https://github.com/ginrou/handwritten_classifier/blob/master/app.py
 
 import tensorflow as tf

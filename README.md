@@ -3,7 +3,7 @@ Expression Parsere + Hand Written Classifier with deep learning (TensorFlow)
 
 
 ## URL
-comming soon
+http://dentaku.herokuapp.com/  
 
 ## Requires
 - ghc 7.6.3 and up
