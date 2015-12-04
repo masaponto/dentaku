@@ -67,9 +67,37 @@ window.addEventListener("load", function(){
         });
 
         $("#accept_button").click(function(){
-            document.getElementById('inputText').value += re;
+            input = document.getElementById('inputText');
+            input.value += re;
+            re = ''
+            input.focus();
+            input.onchange;
+            $('inputText').trigger('change');
+            //document.getElementById('inputText').onchange;
+            //document.getElementById('inputText').fireEvent('onchange');
+            //document.getElementById('inputText').keyup();
+            //input.focus();
+
+
+            // if (input.createTextRange) {
+            //     var range = input.createTextRange();
+            //     range.move('character', input.value.length);
+            //     range.select();
+            // } else if (input.setSelectionRange) {
+            //     input.setSelectionRange(input.value.length, input.value.length);
+            // }
+
+            //document.getElementById('inputText').focus();
+            //document.getElementById('inputText').value += re;
+
+            // var input = document.getElementById('inputText');
+            // var text = input.value;
+            // input.value = '';
+            // input.focus();
+            // text.value = text + re
+
             context.clearRect(0,0,280,280);
-            document.getElementById('inputText').focus();
+
             re = '';
         });
 
