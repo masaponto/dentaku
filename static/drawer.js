@@ -48,8 +48,7 @@ window.addEventListener("load", function(){
 
         $("#canvas").bind('touchend mouseup mouseleave', function(e) {
 
-            // console.log(drawing)
-
+            //console.log(drawing)
             drawing = false;
             estimate(context);
         });
