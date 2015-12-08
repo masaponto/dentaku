@@ -34,6 +34,14 @@ copyright (c) Google, 2015.
 see  
 http://www.apache.org/licenses/LICENSE-2.0.html  
 
+- This software uses Tensorflow
+  
+
+- The file /mnist/input_data.py is licesed by the Apache-2 license.  
+  Copyright 2015 Google Inc.  
+  see http://www.apache.org/licenses/LICENSE-2.0  
+
+
 - This software is released under the MIT License.  
 Copyright (c) 2015 masaponto  
 http://opensource.org/licenses/mit-license.php  
