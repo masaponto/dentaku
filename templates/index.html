@@ -66,7 +66,7 @@
 													<div class="mdl-cell mdl-cell--1-col"></div>
 													<form action="#" class="mdl-layout__content  mdl-cell mdl-cell--10-col">
 														<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-															<input class="mdl-textfield__input" type="text" id="inputText" />
+															<input class="mdl-textfield__input" type="text" id="inputText" >
 															<label class="mdl-textfield__label" for="inputText">Input expression</label>
 														</div>
 													</form>
@@ -77,7 +77,7 @@
 													<div class="mdl-cell mdl-cell--1-col"></div>
 													<form action="#" class="mdl-layout__content mdl-cell mdl-cell--10-col">
 														<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-															<input class="mdl-textfield__input" type="text" id="outputText"  readonly="readonly"/>
+															<input class="mdl-textfield__input" type="text" id="outputText"  readonly="readonly">
 															<label class="mdl-textfield__label" for="outputText"></label>
 														</div>
 													</form>
@@ -136,15 +136,37 @@
 												<div class="canvas_area">
 													<canvas id="gen_canvas" class="mdl-shadow--2dp"></canvas>
 												</div>
+
 												<br>
 
 												<button id="generate_button" type="button"
 														class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">generate</button>
 
-												<button id="rewite_button" type="button"
+												<button id="rewrite_button" type="button"
 														class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">rewrite</button>
 
+
+
 											</div>
+
+											<div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-tablet">
+
+												<main class="mdl-layout__content mdl-cell mdl-cell--12-col">
+													<div class="mdl-grid">
+														<div class="mdl-cell mdl-cell--1-col"></div>
+														<form action="#" class="mdl-layout__content  mdl-cell mdl-cell--10-col">
+															<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+																<textarea class="mdl-textfield__input" type="text" rows="20" id="csv" readonly="readonly">
+																</textarea>
+															</div>
+														</form>
+														<div class="mdl-cell mdl-cell--1-col"></div>
+													</div>
+
+												</main>
+
+											</div>
+
 										</div>
 									</main>
 								</div>

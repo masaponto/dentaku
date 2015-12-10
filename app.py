@@ -43,7 +43,6 @@ def estimate():
     try:
         input = (np.array(request.json["input"],
                           dtype=np.uint8) / 255.0).reshape(1, 784)
-        array2csv(input[0])
         output = convolutional(input)
         return jsonify({"estimated": output})
     except Exception as e:
@@ -54,10 +53,12 @@ def estimate():
 @app.route("/generate", methods=["POST"])
 def array2csv():
     try:
-        inp = (np.array(request.json["input"],
+        input_data = (np.array(request.json["input"],
                         dtype=np.uint8) / 255.0).reshape(1, 784)
 
-        return jsonify({"vec", inp})
+        lst = input_data.tolist()
+        print lst
+        return jsonify({"vec": lst})
     except Exception as e:
         print e
         return jsonify({"error": e})

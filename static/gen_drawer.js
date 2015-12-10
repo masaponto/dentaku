@@ -3,7 +3,7 @@
 
 window.addEventListener("load", function(){
 
-    var canvas = $("#canvas").get(0);
+    var canvas = $("#gen_canvas").get(0);
     var touchableDevice = ('ontouchstart' in window);
 
     if (canvas.getContext){
@@ -14,8 +14,8 @@ window.addEventListener("load", function(){
         var prev = {};
         var re = null;
 
-        canvas.width = 2 * $("#canvas").width();
-        canvas.height = 2 * $("#canvas").height();
+        canvas.width = 2 * $("#gen_canvas").width();
+        canvas.height = 2 * $("#gen_canvas").height();
         context.scale(2.0, 2.0);
 
         context.lineJoin = "round";
@@ -50,7 +50,8 @@ window.addEventListener("load", function(){
 
             //console.log(drawing)
             drawing = false;
-            estimate(context);
+            //estimate(context);
+
         });
 
         var getPointOnCanvas = function(elem, windowEvent, touchEvent ) {
@@ -60,37 +61,31 @@ window.addEventListener("load", function(){
             };
         };
 
-        // $("#delete_button").click(function(){
-        //     context.clearRect(0,0,280,280);
-        //     re = '';
-        // });
+         $("#rewrite_button").click(function(){
+             context.clearRect(0,0,280,280);
+         });
 
-        // $("#accept_button").click(function(){
-        //     input = document.getElementById('inputText');
-        //     input.value += re;
-        //     re = ''
-        //     input.focus();
-        //     input.onchange;
-        //     $('inputText').trigger('change');
+        $("#generate_button").click(function(){
+            var img_buf = getImageBuffer(context, 28, 28);
+            $.ajax({
+                type:"post",
+                url:"/generate",
+                data: JSON.stringify({"input": img_buf}),
+                contentType: 'application/json',
+                success: function(result) {
+                    re = result.vec[0]
+                    console.log(re)
 
-        //     context.clearRect(0,0,280,280);
+                    input = document.getElementById('csv');
+                    input.value += re;
+                    input.value += '\n'
+                    re = ''
 
-        //     re = '';
-        // });
+                }
+            });
 
-        // var estimate = function(context) {
-        //     var img_buf = getImageBuffer(context, 28, 28);
-        //     $.ajax({
-        //         type:"post",
-        //         url:"/estimate",
-        //         data: JSON.stringify({"input": img_buf}),
-        //         contentType: 'application/json',
-        //         success: function(result) {
-        //             $("#estimated").text("This Number is " + result.estimated + " ?");
-        //             re = result.estimated
-        //         }
-        //     });
-        // };
+        });
+
 
         var getImageBuffer = function(context, width, height) {
             var tmpCanvas = $('<canvas>').get(0);
