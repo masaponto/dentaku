@@ -15,7 +15,6 @@
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 
 		<script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
-
 		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 	</head>
@@ -37,86 +36,133 @@
 						</ul>
 					</nav>
 				</div>
+				<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+					<a href="#scroll-tab-1" class="mdl-layout__tab is-active">dentaku</a>
+					<a href="#scroll-tab-2" class="mdl-layout__tab">generator</a>
+				</div>
 			</header>
 
 
-	  		<main class="mdl-layout__content mdl-color--grey-200">
-				<div class="page-content">
+			<main class="mdl-layout__content mdl-color--grey-200">
 
-					<div class="mdl-grid">
+				<section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+					<div class="page-content">
 
-						<div class="mdl-cell mdl-cell--1-col"></div>
-						<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--10-col">
+	  					<!-- <main class="mdl-layout__content mdl-color--grey-200"> -->
+						<!-- 	<div class="page-content"> -->
 
-							<main class="mdl-layout__content">
-								<div class="mdl-grid">
+						<div class="mdl-grid">
 
-									<div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-tablet">
+							<div class="mdl-cell mdl-cell--1-col"></div>
+							<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--10-col">
 
+								<main class="mdl-layout__content">
+									<div class="mdl-grid">
 
-										<main class="mdl-layout__content mdl-cell mdl-cell--12-col">
-											<div class="mdl-grid">
-												<div class="mdl-cell mdl-cell--1-col"></div>
-												<!-- <label class="mdl-cell mdl-cell--1-col" for="inputText" >IN</label> -->
-												<form action="#" class="mdl-layout__content  mdl-cell mdl-cell--10-col">
-													<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-														<input class="mdl-textfield__input" type="text" id="inputText" />
-														<label class="mdl-textfield__label" for="inputText">Input expression</label>
-													</div>
-												</form>
-												<div class="mdl-cell mdl-cell--1-col"></div>
-											</div>
-										<!-- </main> -->
+										<div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-tablet">
 
-										<!-- <main class="mdl-layout__content"> -->
-											<div class="mdl-grid">
-												<div class="mdl-cell mdl-cell--1-col"></div>
-												<form action="#" class="mdl-layout__content mdl-cell mdl-cell--10-col">
-													<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-														<input class="mdl-textfield__input" type="text" id="outputText"  readonly="readonly"/>
-														<label class="mdl-textfield__label" for="outputText"></label>
-													</div>
-												</form>
-												<div class="mdl-cell mdl-cell--1-col"></div>
-											</div>
-										</main>
+											<main class="mdl-layout__content mdl-cell mdl-cell--12-col">
+												<div class="mdl-grid">
+													<div class="mdl-cell mdl-cell--1-col"></div>
+													<form action="#" class="mdl-layout__content  mdl-cell mdl-cell--10-col">
+														<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+															<input class="mdl-textfield__input" type="text" id="inputText" />
+															<label class="mdl-textfield__label" for="inputText">Input expression</label>
+														</div>
+													</form>
+													<div class="mdl-cell mdl-cell--1-col"></div>
+												</div>
 
-									</div>
+												<div class="mdl-grid">
+													<div class="mdl-cell mdl-cell--1-col"></div>
+													<form action="#" class="mdl-layout__content mdl-cell mdl-cell--10-col">
+														<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+															<input class="mdl-textfield__input" type="text" id="outputText"  readonly="readonly"/>
+															<label class="mdl-textfield__label" for="outputText"></label>
+														</div>
+													</form>
+													<div class="mdl-cell mdl-cell--1-col"></div>
+												</div>
+											</main>
 
-
-
-									<div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet">
-
-										<h6 id="estimated"> This Number is ...</h6>
-
-										<div class="canvas_area">
-											<canvas id="canvas" class="mdl-shadow--2dp"></canvas>
 										</div>
-										<br>
 
-										<button id="accept_button" type="button"
-												class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Yes</button>
-										<button id="delete_button" type="button"
-												class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">No</button>
+
+										<div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet">
+
+											<h6 id="estimated"> This Number is ...</h6>
+
+											<div class="canvas_area">
+												<canvas id="canvas" class="mdl-shadow--2dp"></canvas>
+											</div>
+											<br>
+
+											<button id="accept_button" type="button"
+													class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Yes</button>
+											<button id="delete_button" type="button"
+													class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">No</button>
+
+										</div>
 
 									</div>
+								</main>
+							</div>
 
+
+							<div class="mdl-cell mdl-cell--1-col"></div>
+
+						</div>
+					</div>
+
+				</section>
+
+
+				<section class="mdl-layout__tab-panel" id="scroll-tab-2">
+					<div class="page-content">
+
+							<div class="mdl-grid">
+
+								<div class="mdl-cell mdl-cell--1-col"></div>
+
+								<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--10-col">
+
+									<main class="mdl-layout__content">
+										<div class="mdl-grid">
+
+											<div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet">
+
+												<h6 id="estimated">Write here</h6>
+
+												<div class="canvas_area">
+													<canvas id="gen_canvas" class="mdl-shadow--2dp"></canvas>
+												</div>
+												<br>
+
+												<button id="generate_button" type="button"
+														class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">generate</button>
+
+												<button id="rewite_button" type="button"
+														class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">rewrite</button>
+
+											</div>
+										</div>
+									</main>
 								</div>
-							</main>
+
+								<div class="mdl-cell mdl-cell--1-col"></div>
+
 						</div>
 
-
-						<div class="mdl-cell mdl-cell--1-col"></div>
-
 					</div>
-				</div>
-			</main>
 
+				</section>
+			</main>
 		</div>
 
 		<!-- <script src="parser.js"></script> -->
 		<script src="{{ url_for('static', filename='drawer.js') }}"></script>
 		<script src="{{ url_for('static', filename='parser.js') }}"></script>
+		<script src="{{ url_for('static', filename='gen_drawer.js') }}"></script>
 
 	</body>
 

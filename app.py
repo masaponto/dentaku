@@ -20,6 +20,8 @@ with tf.variable_scope("convolutional"):
 
 saver = tf.train.Saver(variables)
 saver.restore(sess, "mnist/data/convolutional.ckpt")
+
+
 def convolutional(input):
     y = sess.run(y2, feed_dict={x: input, keep_prob: 1.0}).flatten().tolist()
     return y.index(max(y))
@@ -30,33 +32,36 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
 
-@app.route("/estimate", methods = ["POST"])
+@app.route("/estimate", methods=["POST"])
 def estimate():
     try:
-        input = (np.array(request.json["input"], dtype=np.uint8) / 255.0).reshape(1, 784)
+        input = (np.array(request.json["input"],
+                          dtype=np.uint8) / 255.0).reshape(1, 784)
         array2csv(input[0])
         output = convolutional(input)
-        return jsonify({"estimated":output})
+        return jsonify({"estimated": output})
     except Exception as e:
         print e
-        return jsonify({"error":e})
+        return jsonify({"error": e})
 
 
-def array2csv(ary):
-    import csv
-    with open ('./data.csv', 'w') as f:
-        csv_writer = csv.writer(f,  lineterminator='\n')
-        lst = ary.tolist()
-        print lst
-        csv_writer.writerow(lst)
+@app.route("/generate", methods=["POST"])
+def array2csv():
+    try:
+        inp = (np.array(request.json["input"],
+                        dtype=np.uint8) / 255.0).reshape(1, 784)
 
-
+        return jsonify({"vec", inp})
+    except Exception as e:
+        print e
+        return jsonify({"error": e})
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port = 8080)
+    app.run(host='0.0.0.0', port=8080)
