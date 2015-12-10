@@ -39,11 +39,23 @@ def index():
 def estimate():
     try:
         input = (np.array(request.json["input"], dtype=np.uint8) / 255.0).reshape(1, 784)
+        array2csv(input[0])
         output = convolutional(input)
         return jsonify({"estimated":output})
     except Exception as e:
         print e
         return jsonify({"error":e})
+
+
+def array2csv(ary):
+    import csv
+    with open ('./data.csv', 'w') as f:
+        csv_writer = csv.writer(f,  lineterminator='\n')
+        lst = ary.tolist()
+        print lst
+        csv_writer.writerow(lst)
+
+
 
 
 if __name__ == "__main__":
