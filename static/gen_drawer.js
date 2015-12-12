@@ -74,17 +74,16 @@ window.addEventListener("load", function(){
                 contentType: 'application/json',
                 success: function(result) {
                     re = result.vec[0]
-                    console.log(re)
-
+                    //console.log(re)
                     input = document.getElementById('csv');
                     input.value += re;
                     input.value += '\n'
                     re = ''
-
                 }
             });
 
         });
+
 
 
         var getImageBuffer = function(context, width, height) {
@@ -102,6 +101,21 @@ window.addEventListener("load", function(){
             }
             return buffer;
         };
+
+        $("#download_button").click(function(){
+	        //var value=$("#csv").val();
+            var value = document.getElementById("csv").value;
+	        console.log(value);
+
+            var blob = new Blob([value], {type: "text/plain"});
+            var url = window.URL.createObjectURL(blob);
+            //document.getElementById("download-link").href = url;
+            //document.getElementById("download-link").download = "data.csv";
+            this.href = url
+            this.download = "data.csv"
+
+        });
+
 
     }
 }, false);
