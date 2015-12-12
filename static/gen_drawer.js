@@ -61,9 +61,11 @@ window.addEventListener("load", function(){
             };
         };
 
-         $("#rewrite_button").click(function(){
+
+        $("#rewrite_button").click(function(){
              context.clearRect(0,0,280,280);
          });
+
 
         $("#generate_button").click(function(){
             var img_buf = getImageBuffer(context, 28, 28);
@@ -73,17 +75,15 @@ window.addEventListener("load", function(){
                 data: JSON.stringify({"input": img_buf}),
                 contentType: 'application/json',
                 success: function(result) {
-                    re = result.vec[0]
-                    //console.log(re)
+
+                    re = result.vec[0].toString() + "\n"
                     input = document.getElementById('csv');
-                    input.value += re;
-                    input.value += '\n'
-                    re = ''
+                    input.value += re
+                    re = ""
                 }
             });
 
         });
-
 
 
         var getImageBuffer = function(context, width, height) {
@@ -102,25 +102,13 @@ window.addEventListener("load", function(){
             return buffer;
         };
 
-        $("#download_button").click(function(){
-	        //var value=$("#csv").val();
-            var value = document.getElementById("csv").value;
-	        console.log(value);
 
-            var blob = new Blob([value], {type: "text/plain"});
-            var url = window.URL.createObjectURL(blob);
-            //document.getElementById("download-link").href = url;
-            //document.getElementById("download-link").download = "data.csv";
-            document.getElementById("download_button").href = url
-            document.getElementById("download_button").dowload = "data.csv"
-            //this.href = url
-            //this.download = "data.csv"
-
-            //var href = "data:application/octet-stream," + encodeURIComponent(value);
-            //this.setAttribute("href", href);
-
-        });
-
+        document.querySelector('#download_button').onclick = function() {
+            var text = document.querySelector('#csv').value;
+            //console.log(text);
+            this.href = 'data:text/plain;charset=utf-8,'
+                + encodeURIComponent(text);
+        };
 
     }
 }, false);
