@@ -111,8 +111,13 @@ window.addEventListener("load", function(){
             var url = window.URL.createObjectURL(blob);
             //document.getElementById("download-link").href = url;
             //document.getElementById("download-link").download = "data.csv";
-            this.href = url
-            this.download = "data.csv"
+            document.getElementById("download_button").href = url
+            document.getElementById("download_button").dowload = "data.csv"
+            //this.href = url
+            //this.download = "data.csv"
+
+            //var href = "data:application/octet-stream," + encodeURIComponent(value);
+            //this.setAttribute("href", href);
 
         });
 
