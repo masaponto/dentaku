@@ -25,7 +25,6 @@ window.addEventListener("load", function(){
 
         $("#gen_canvas").bind('touchstart mousedown', function(e) {
             e.preventDefault();
-            event = null;
             prev = getPointOnCanvas(this, event, e);
             drawing = true;
         });
