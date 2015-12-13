@@ -99,6 +99,7 @@ window.addEventListener("load", function(){
                 var sum = image.data[i+0] + image.data[i+1] + image.data[i+2] + image.data[i+3];
                 buffer.push(Math.min(sum,255));
             }
+            //console.log(buffer[0])
             return buffer;
         };
 

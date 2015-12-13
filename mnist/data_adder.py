@@ -81,10 +81,11 @@ def add_data(mnist_data):
 
     #input_data.DataSet(mnist_data.tarin.tra ,fix_labels)
 
-    mnist_data.train = input_data.DataSet(fixed_train_images, fixed_train_labels)
-    mnist_data.validation = input_data.DataSet(fixed_validation_images, fixed_validation_labels)
+    mnist_data.train = input_data.DataSet(
+        fixed_train_images, fixed_train_labels)
+    mnist_data.validation = input_data.DataSet(
+        fixed_validation_images, fixed_validation_labels)
     mnist_data.test = input_data.DataSet(fixed_test_images, fixed_test_labels)
-
 
     print mnist_data
 
