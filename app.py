@@ -57,7 +57,7 @@ def array2csv():
                                dtype=np.uint8)).reshape(1, 784)
 
         lst = input_data.tolist()
-        #print lst
+        # print lst
         return jsonify({"vec": lst})
     except Exception as e:
         print e
