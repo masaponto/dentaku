@@ -54,7 +54,7 @@ def estimate():
 def array2csv():
     try:
         input_data = (np.array(request.json["input"],
-                        dtype=np.uint8) / 255.0).reshape(1, 784)
+                               dtype=np.uint8)).reshape(1, 784)
 
         lst = input_data.tolist()
         #print lst
