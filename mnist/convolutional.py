@@ -5,8 +5,10 @@
 import tensorflow as tf
 
 import input_data
+import data_adder
 #data = input_data.read_data_sets("/tmp/data/", one_hot=True)
 data = input_data.read_data_sets('MNIST_data', one_hot=True)
+data = data_adder.add_data(data)
 
 # model
 import model
@@ -16,7 +18,8 @@ with tf.variable_scope("convolutional"):
     y, variables = model.convolutional(x, keep_prob)
 
 # train
-y_ = tf.placeholder("float", [None, 10])
+#y_ = tf.placeholder("float", [None, 10])
+y_ = tf.placeholder("float", [None, 11])
 cross_entropy = -tf.reduce_sum(y_ * tf.log(y))
 train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
 correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))

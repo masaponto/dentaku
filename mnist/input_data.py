@@ -13,6 +13,11 @@
 # limitations under the License.
 # ==============================================================================
 
+
+# This program was changed by masapnoto
+# function __init__() in DataSet was changed to add other data
+
+
 """Functions for downloading and reading MNIST data."""
 from __future__ import absolute_import
 from __future__ import division
@@ -102,6 +107,7 @@ class DataSet(object):
       self._labels = labels
       self._epochs_completed = 0
       self._index_in_epoch = 0
+      self._num_examples = images.shape[0]
     else:
       assert images.shape[0] == labels.shape[0], (
           'images.shape: %s labels.shape: %s' % (images.shape,
