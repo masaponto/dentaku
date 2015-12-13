@@ -1,3 +1,6 @@
 .python-version
 *.pyc
 .ipynb_checkpoints/
+mnist/MNIST_data/
+mnist/data/checkpoint
+*.csv
