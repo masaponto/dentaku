@@ -66,12 +66,20 @@ def add_data(mnist_data):
     # load my dat from csv
     path = 'csv/plus_data.csv'
     my_data = load_csv(path)
-    my_data_array = np.array(my_data)
+    my_data_array = np.array(my_data).astype(np.float32)
+    my_data_array = my_data_array / 255
+
 
     # add my data
-    fixed_train_labels = fix_labels(mnist_data.train.labels, len(my_data))
+    n = len(my_data_array)
+
+    fixed_train_labels = fix_labels(mnist_data.train.labels, n)
     fixed_train_images = fix_images(
-        mnist_data.train.images, my_data_array, len(my_data))
+        mnist_data.train.images, my_data_array, n)
+
+    fixed_test_labels = fix_labels(mnist_data.test.labels, n)
+    fixed_test_images = fix_images(
+        mnist_data.test.images, my_data_array, n)
 
     # split data
     fixed_validation_images = fixed_train_images[:VALIDATION_SIZE]
@@ -82,18 +90,18 @@ def add_data(mnist_data):
     #input_data.DataSet(mnist_data.tarin.tra ,fix_labels)
 
     mnist_data.train = input_data.DataSet(
-        fixed_train_images, fixed_train_labels)
+        fixed_train_images, fixed_train_labels, add=True)
     mnist_data.validation = input_data.DataSet(
-        fixed_validation_images, fixed_validation_labels)
-    mnist_data.test = input_data.DataSet(fixed_test_images, fixed_test_labels)
+        fixed_validation_images, fixed_validation_labels, add=True)
+    mnist_data.test = input_data.DataSet(fixed_test_images, fixed_test_labels, add=True)
 
-    print mnist_data
+    return mnist_data
 
 
 def load_data():
     mnist_data = input_data.read_data_sets('MNIST_data', one_hot=True)
-    add_data(mnist_data)
+    return add_data(mnist_data)
 
 
 if __name__ == "__main__":
-    load_data()
+    print load_data()

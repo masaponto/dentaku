@@ -91,12 +91,17 @@ def extract_labels(filename, one_hot=False):
 
 class DataSet(object):
 
-  def __init__(self, images, labels, fake_data=False, one_hot=False):
+  def __init__(self, images, labels, fake_data=False, one_hot=False, add=False):
     """Construct a DataSet. one_hot arg is used only if fake_data is true."""
 
     if fake_data:
       self._num_examples = 10000
       self.one_hot = one_hot
+    elif add:
+      self._images = images
+      self._labels = labels
+      self._epochs_completed = 0
+      self._index_in_epoch = 0
     else:
       assert images.shape[0] == labels.shape[0], (
           'images.shape: %s labels.shape: %s' % (images.shape,
