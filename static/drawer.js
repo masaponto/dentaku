@@ -68,9 +68,8 @@ window.addEventListener("load", function(){
             input = document.getElementById('inputText');
             input.value += re;
             re = ''
-            input.focus();
-            input.onchange;
-            $('inputText').trigger('change');
+
+            $("#inputText").trigger('change');
 
             context.clearRect(0,0,280,280);
 
