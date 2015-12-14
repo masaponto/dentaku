@@ -84,7 +84,7 @@ window.addEventListener("load", function(){
                 data: JSON.stringify({"input": img_buf}),
                 contentType: 'application/json',
                 success: function(result) {
-                    $("#estimated").text("This Number is " + result.estimated + " ?");
+                    $("#estimated").text("This is " + result.estimated + " ?");
                     re = result.estimated
                 }
             });
