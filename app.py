@@ -19,7 +19,9 @@ with tf.variable_scope("convolutional"):
     y2, variables = model.convolutional(x, keep_prob)
 
 saver = tf.train.Saver(variables)
-saver.restore(sess, "mnist/data/convolutional.ckpt")
+saver.restore(sess, "mnist/data/convolutional_plus.ckpt")
+
+mark_dict = {10: '+'}
 
 
 def convolutional(input):
@@ -44,6 +46,10 @@ def estimate():
         input = (np.array(request.json["input"],
                           dtype=np.uint8) / 255.0).reshape(1, 784)
         output = convolutional(input)
+
+        if output in mark_dict:
+            output = mark_dict[output]
+
         return jsonify({"estimated": output})
     except Exception as e:
         print e
