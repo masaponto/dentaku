@@ -5,10 +5,14 @@
 import tensorflow as tf
 
 import input_data
-import data_adder
+
+import data_processer
 #data = input_data.read_data_sets("/tmp/data/", one_hot=True)
-data = input_data.read_data_sets('MNIST_data', one_hot=True)
-data = data_adder.add_data(data)
+
+mnist_data = input_data.read_data_sets('MNIST_data', one_hot=True)
+plus_data = data_processer.load_image_data('csv/plus_data.csv')
+minus_data = data_processer.load_image_data('csv/minus_data.csv')
+data = data_processer.add_data(mnist_data, [plus_data, minus_data])
 
 # model
 import model
@@ -19,7 +23,7 @@ with tf.variable_scope("convolutional"):
 
 # train
 #y_ = tf.placeholder("float", [None, 10])
-y_ = tf.placeholder("float", [None, 11])
+y_ = tf.placeholder("float", [None, 12])
 cross_entropy = -tf.reduce_sum(y_ * tf.log(y))
 train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
 correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))

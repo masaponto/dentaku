@@ -19,19 +19,21 @@ with tf.variable_scope("convolutional"):
     y2, variables = model.convolutional(x, keep_prob)
 
 saver = tf.train.Saver(variables)
-saver.restore(sess, "mnist/data/convolutional_plus.ckpt")
+#saver.restore(sess, "mnist/data/convolutional_plus.ckpt")
+saver.restore(sess, "mnist/data/convolutional_tmp.ckpt")
 
-mark_dict = {10: '+'}
+mark_dict = {10: '+',
+             11: '-',
+             12: '*',
+             13: '/'}
 
 
 def convolutional(input):
     y = sess.run(y2, feed_dict={x: input, keep_prob: 1.0}).flatten().tolist()
     return y.index(max(y))
 
-print 'hello'
 
 from flask import Flask, render_template, request, jsonify
-
 app = Flask(__name__)
 
 
@@ -46,11 +48,10 @@ def estimate():
         input = (np.array(request.json["input"],
                           dtype=np.uint8) / 255.0).reshape(1, 784)
         output = convolutional(input)
-
         if output in mark_dict:
             output = mark_dict[output]
-
         return jsonify({"estimated": output})
+
     except Exception as e:
         print e
         return jsonify({"error": e})
@@ -61,10 +62,9 @@ def array2csv():
     try:
         input_data = (np.array(request.json["input"],
                                dtype=np.uint8)).reshape(1, 784)
-
         lst = input_data.tolist()
-        # print lst
         return jsonify({"vec": lst})
+
     except Exception as e:
         print e
         return jsonify({"error": e})

@@ -35,8 +35,8 @@ def convolutional(x, keep_prob):
     h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)
     # Readout Layer
     #W_fc2 = weight_variable([1024, 10])
-    W_fc2 = weight_variable([1024, 11])
+    W_fc2 = weight_variable([1024, 12])
     #b_fc2 = bias_variable([10])
-    b_fc2 = bias_variable([11])
+    b_fc2 = bias_variable([12])
     y = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
     return y, [W_conv1, b_conv1, W_conv2, b_conv2, W_fc1, b_fc1, W_fc2, b_fc2]
