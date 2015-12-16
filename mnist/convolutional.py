@@ -12,7 +12,10 @@ import data_processer
 mnist_data = input_data.read_data_sets('MNIST_data', one_hot=True)
 plus_data = data_processer.load_image_data('csv/plus_data.csv')
 minus_data = data_processer.load_image_data('csv/minus_data.csv')
-data = data_processer.add_data(mnist_data, [plus_data, minus_data])
+mult_data = data_processer.load_image_data('csv/mult_data.csv')
+div_data = data_processer.load_image_data('csv/div_data.csv')
+
+data = data_processer.add_data(mnist_data, [plus_data, minus_data, mult_data, div_data])
 
 # model
 import model
@@ -23,7 +26,7 @@ with tf.variable_scope("convolutional"):
 
 # train
 #y_ = tf.placeholder("float", [None, 10])
-y_ = tf.placeholder("float", [None, 12])
+y_ = tf.placeholder("float", [None, 14])
 cross_entropy = -tf.reduce_sum(y_ * tf.log(y))
 train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
 correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
@@ -45,5 +48,5 @@ with tf.Session() as sess:
     print sess.run(accuracy, feed_dict={x: data.test.images, y_: data.test.labels, keep_prob: 1.0})
 
     #path = saver.save(sess, "data/convolutional.ckpt")
-    path = saver.save(sess, "data/convolutional_tmp.ckpt")
+    path = saver.save(sess, "data/convolutional_basic_arith.ckpt")
     print "Saved:", path

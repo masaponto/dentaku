@@ -19,8 +19,7 @@ with tf.variable_scope("convolutional"):
     y2, variables = model.convolutional(x, keep_prob)
 
 saver = tf.train.Saver(variables)
-#saver.restore(sess, "mnist/data/convolutional_plus.ckpt")
-saver.restore(sess, "mnist/data/convolutional_tmp.ckpt")
+saver.restore(sess, "mnist/data/convolutional_basic_arith.ckpt")
 
 mark_dict = {10: '+',
              11: '-',
