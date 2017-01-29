@@ -38,4 +38,4 @@ see http://www.apache.org/licenses/LICENSE-2.0.html
 
 - This software is released under the MIT License.  
 Copyright (c) 2015 masaponto  
-http://opensource.org/licenses/mit-license.php  
+see LICENSE.txt
